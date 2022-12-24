@@ -1,13 +1,14 @@
 //
 //  ContentView.swift
-//  Movie-Explorer-iOS
+//  USC Films
 //
-//  Created by Oli Chen on 12/24/22.
+//  Created by 烁  陈 on 2021/4/17.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
+    
     @State private var selection = 2
         
     var body: some View {
@@ -34,8 +35,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
