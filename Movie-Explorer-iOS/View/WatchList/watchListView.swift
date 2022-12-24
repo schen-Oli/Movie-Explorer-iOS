@@ -20,7 +20,7 @@ struct watchListView: View {
             ScrollView(.vertical){
                 LazyVGrid(columns: columns, spacing: 5, content: {
                     ForEach(watchList.fullWatchList){ media in
-                        NavigationLink(destination: LazyView(mediaDetail(card: media))){
+                        NavigationLink(destination: LazyView(MediaDetail(card: media))){
                             oneMovieInWL(card: media)
                         }
                         .buttonStyle(PlainButtonStyle())
@@ -64,6 +64,30 @@ struct watchListView: View {
             watchList.reLoad()
         }
     }
+}
+
+struct oneMovieInWL: View {
+    
+    var card : CardData
+    
+    init(card: CardData){
+        self.card = card
+    }
+    
+    var body: some View{
+        if(card.pic != ""){
+            KFImage(URL(string: card.pic)!)
+                .resizable()
+                .frame(width: 120, height: 180)
+                .aspectRatio(contentMode: .fill)
+        }else{
+            Image("moviePlaceHolder")
+                .resizable()
+                .frame(width: 120, height: 180)
+                .aspectRatio(contentMode: .fill)
+        }
+    }
+    
 }
 
 struct watchListView_Previews: PreviewProvider {

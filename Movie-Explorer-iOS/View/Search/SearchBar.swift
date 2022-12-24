@@ -73,7 +73,7 @@ struct SearchBar: View {
                 VStack(alignment: .leading, spacing: 12){
                     ForEach(searchData.searchResults){ res in
                         VStack{
-                            NavigationLink(destination: LazyView(mediaDetail(card: CardData(title: res.title, mediaID: res.mediaID, pic: res.poster, type: res.type, date: res.date)))){
+                            NavigationLink(destination: LazyView(MediaDetail(card: CardData(title: res.title, mediaID: res.mediaID, pic: res.poster, type: res.type, date: res.date)))){
                             oneSearchResView(result: res)
                             }
                         }

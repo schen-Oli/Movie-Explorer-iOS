@@ -18,7 +18,7 @@ struct MediaReview: View {
     var body: some View {
         VStack{
             ForEach(reviews){ review in
-                NavigationLink(destination: reviewDetail(review:review, title:title)){
+                NavigationLink(destination: ReviewDetail(review:review, title:title)){
                     singleReview(review: review)
                 } .buttonStyle(PlainButtonStyle())
                 

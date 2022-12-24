@@ -43,7 +43,7 @@ struct HomeViewMain: View {
                 
                 VStack{
                     let media = isMovie ? medias.MovieInfo : medias.TvInfo
-                    carousel(medias: media)
+                    Carousel(medias: media)
                 }
                 
                 VStack(alignment: .leading){
@@ -54,7 +54,7 @@ struct HomeViewMain: View {
                         .font(Font.system(size: 20, weight: .semibold))
                     
                     let mediaTR = isMovie ? cards.movieTopRated : cards.tvTopRated
-                    cardList(cards:mediaTR, toast: self.toast)
+                    CardList(cards:mediaTR, toast: self.toast)
                         .padding(.leading, 5)
                     
                     Text("Popular")
@@ -64,7 +64,7 @@ struct HomeViewMain: View {
                         .font(Font.system(size: 20, weight: .semibold))
                     
                     let mediaPop = isMovie ? cards.moviePopular : cards.tvPopular
-                    cardList(cards:mediaPop, toast: self.toast)
+                    CardList(cards:mediaPop, toast: self.toast)
                        
                     
                 }.padding(.horizontal)

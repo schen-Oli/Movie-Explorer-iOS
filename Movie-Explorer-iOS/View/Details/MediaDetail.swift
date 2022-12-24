@@ -50,7 +50,7 @@ struct MediaDetail: View {
             }.padding(.horizontal)
             .padding(.top, 5)
             
-            mediaOverview(overview: details.mediaDetails.overview)
+            MediaOverview(overview: details.mediaDetails.overview)
                 .padding()
                 .padding(.top, -5)
             
@@ -64,7 +64,7 @@ struct MediaDetail: View {
                 .padding(.horizontal)
                 .padding(.bottom, 5)
                 .padding(.top, -5)
-                castAndCrew(castList: details.castList)
+                Cast(castList: details.castList)
             }
             
             if(details.hasReview){
@@ -75,7 +75,7 @@ struct MediaDetail: View {
                     Spacer()
                 }.padding(.horizontal)
                 .padding(.top, -5)
-                mediaReview(reviews:details.reviewList, title:details.mediaDetails.title)
+                MediaReview(reviews:details.reviewList, title:details.mediaDetails.title)
             }
             
             if(details.hasRec){
@@ -93,7 +93,7 @@ struct MediaDetail: View {
                     }
                     Spacer()
                 }
-                recommend(recs: details.recCardList)
+                Recommend(recs: details.recCardList)
                     .padding(.horizontal)
                     .padding(.top, -15)
                     .padding(.bottom)
@@ -149,7 +149,7 @@ struct MediaDetail: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 20, height: 20, alignment: .center)
                     }
-                    .frame(width: 20, height: 20, alignment: Ï)
+                    .frame(width: 20, height: 20, alignment: .center)
                     Text("")
                 }.padding(.horizontal, -3)
                 

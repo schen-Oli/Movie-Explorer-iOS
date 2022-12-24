@@ -12,13 +12,13 @@ struct ContentView: View {
         
     var body: some View {
         TabView(selection:$selection){
-            searchView()
+            SearchView()
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")
                 }
                 .tag(1)
-            homeViewMain()
+            HomeViewMain()
                 .tabItem {
                     Image(systemName: "house")
                     Text("Home")

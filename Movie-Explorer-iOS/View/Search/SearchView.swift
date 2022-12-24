@@ -12,7 +12,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                searchBar(searchData: searchData)
+                SearchBar(searchData: searchData)
                     .navigationTitle("Search")
                     .navigationBarTitleDisplayMode(.large)
                 Spacer()

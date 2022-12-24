@@ -36,7 +36,7 @@ class SearchMedia: ObservableObject{
     @Published var hasRes = true
     
     func find(){
-        let url = urlPre + "searchMulti/" + query.replacingOccurrences(of: " ", with: "%20")
+        let url = urlPre + "search/" + query.replacingOccurrences(of: " ", with: "%20")
         AF.request(url).response{ res in
             let searchRes = try! JSON(data: res.data!)
             if(searchRes.count > 0){

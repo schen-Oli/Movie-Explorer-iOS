@@ -35,7 +35,7 @@ class carouselModel : ObservableObject {
     }
     
     func getMovieCarousel() {
-        AF.request(urlPre + "trending").response { response in
+        AF.request(urlPre + "playing/movie").response { response in
             let movies = try! JSON(data: response.data!)
             for movie in movies{
                 let title = movie.1["title"].object as! String
@@ -51,7 +51,7 @@ class carouselModel : ObservableObject {
     }
     
     func getTvCarousel(){
-        AF.request(urlPre + "trending/tv").response { response in
+        AF.request(urlPre + "playing/tv").response { response in
             let tvs = try! JSON(data: response.data!)
             for tv in tvs{
                 let title = tv.1["title"].object as! String

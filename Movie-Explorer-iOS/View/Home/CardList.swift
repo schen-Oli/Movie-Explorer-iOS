@@ -32,7 +32,7 @@ struct CardList: View {
         ScrollView(.horizontal){
             HStack{
                 ForEach(cards){ card in
-                    NavigationLink(destination: LazyView(mediaDetail(card:card))){
+                    NavigationLink(destination: LazyView(MediaDetail(card:card))){
                         oneCard(card:card, toast:self.toast)
                     }
                     .buttonStyle(PlainButtonStyle())
@@ -58,7 +58,7 @@ struct oneCard: View{
     var body: some View{
         VStack(alignment: .center, spacing: 0.0){
             
-            RemoteImage(url: card.pic)
+            ImageLoader(url: card.pic)
                 .frame(width: 100, height: 150)
                 .aspectRatio(contentMode: .fit)
                 .clipped()

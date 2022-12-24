@@ -90,17 +90,17 @@ class movieDetailModel : ObservableObject{
     }
     
     func getVideo(type:String, id:Int){
-        AF.request(urlPre + "getVideo/" + type + "/" + String(id)).response { response in
+        AF.request(urlPre + "video/" + type + "/" + String(id)).response { response in
             let videoData = try! JSON(data: response.data!)
             self.video = YoutubeVideo(
                 url:videoData["key"].stringValue,
-                hasVideo:videoData["hasVideo"].boolValue)
+                hasVideo:videoData["status"] == 1)
             self.getDetails(type:type, id:id)
         }
     }
     
     func getDetails(type:String, id:Int){
-        AF.request(urlPre + "getDetail/" + type + "/" + String(id)).responseData { response in
+        AF.request(urlPre + "detail/" + type + "/" + String(id)).responseData { response in
             let videoDetail = try! JSON(data: response.data!)
             self.mediaDetails = mediaInfo(
                 title:videoDetail["title"].stringValue,
@@ -112,7 +112,7 @@ class movieDetailModel : ObservableObject{
     }
     
     func getCast(type:String, id:Int){
-        AF.request(urlPre + "getCast/" + type + "/" + String(id)).response { response in
+        AF.request(urlPre + "cast/" + type + "/" + String(id)).response { response in
             let casts = try! JSON(data: response.data!)
             if(casts.count > 0){
                 self.hasCast = true
@@ -127,7 +127,7 @@ class movieDetailModel : ObservableObject{
     }
     
     func getReview(type:String, id:Int){
-        AF.request(urlPre + "getReview/" + type + "/" + String(id)).response { response in
+        AF.request(urlPre + "review/" + type + "/" + String(id)).response { response in
             let reviews = try! JSON(data: response.data!)
             if(reviews.count > 0){
                 self.hasReview = true
@@ -146,7 +146,7 @@ class movieDetailModel : ObservableObject{
     }
     
     func getRec(type:String, id:Int){
-        AF.request(urlPre + "getRec/" + type + "/" + String(id)).response { response in
+        AF.request(urlPre + "recommendation/" + type + "/" + String(id)).response { response in
             let recommend = try! JSON(data: response.data!)
             if(recommend.count > 0){
                 self.hasRec = true

@@ -24,7 +24,7 @@ struct Carousel: View {
                     
                     let tmpCard = CardData(title: media.title, mediaID: media.mediaID, pic: media.pic, type: media.type, date: "0000")
                     NavigationLink(
-                        destination: LazyView(mediaDetail(card:tmpCard))){
+                        destination: LazyView(MediaDetail(card:tmpCard))){
                           
                     oneCarousel(media: media)
                         .frame(width: geo.size.width, height: geo.size.height)
@@ -107,6 +107,6 @@ struct oneCarousel: View {
 
 struct Carousel_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        ContentView()
     }
 }

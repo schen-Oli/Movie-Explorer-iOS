@@ -16,7 +16,7 @@ struct Recommend: View {
             HStack{
                 ForEach(recs){ rec in
                     let tmpCard = CardData(title: rec.title, mediaID: rec.mediaID, pic: rec.pic, type: rec.type, date: "")
-                    NavigationLink(destination: LazyView(mediaDetail(card: tmpCard))){
+                    NavigationLink(destination: LazyView(MediaDetail(card: tmpCard))){
                         oneRec(rec:rec)
                     }
                     .buttonStyle(PlainButtonStyle())

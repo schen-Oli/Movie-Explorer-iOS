@@ -43,13 +43,13 @@ class homeCardModel : ObservableObject {
     }
     
     func getMovieTopRated(){
-        AF.request(urlPre + "getData/movie/top_rated").response { response in
+        AF.request(urlPre + "media/movie/top_rated").response { response in
             let movies = try! JSON(data: response.data!)
             for movie in movies{
                 let title = movie.1["title"].object as! String
                 let mediaID = movie.1["id"].object as! Int
                 let type = movie.1["type"].object as! String
-                let pic = movie.1["backdrop"].object as! String
+                let pic = movie.1["poster"].object as! String
                 let date = movie.1["date"].object as! String
                 let oneMovie = CardData(title: title, mediaID: mediaID, pic: pic, type: type, date: date)
                 self.movieTopRated.append(oneMovie)
@@ -60,13 +60,13 @@ class homeCardModel : ObservableObject {
     }
     
     func getMoviePopular(){
-        AF.request(urlPre + "getData/movie/popular").response { response in
+        AF.request(urlPre + "media/movie/popular").response { response in
             let movies = try! JSON(data: response.data!)
             for movie in movies{
                 let title = movie.1["title"].object as! String
                 let mediaID = movie.1["id"].object as! Int
                 let type = movie.1["type"].object as! String
-                let pic = movie.1["backdrop"].object as! String
+                let pic = movie.1["poster"].object as! String
                 let date = movie.1["date"].object as! String
                 let oneMovie = CardData(title: title, mediaID: mediaID, pic: pic, type: type, date: date)
                 self.moviePopular.append(oneMovie)
@@ -76,13 +76,13 @@ class homeCardModel : ObservableObject {
     }
     
     func getTvTopRated(){
-        AF.request(urlPre + "getData/tv/top_rated").response { response in
+        AF.request(urlPre + "media/tv/top_rated").response { response in
             let tvs = try! JSON(data: response.data!)
             for tv in tvs{
                 let title = tv.1["title"].object as! String
                 let mediaID = tv.1["id"].object as! Int
                 let type = tv.1["type"].object as! String
-                let pic = tv.1["backdrop"].object as! String
+                let pic = tv.1["poster"].object as! String
                 let date = tv.1["date"].object as! String
                 let oneTv = CardData(title: title, mediaID: mediaID, pic: pic, type: type, date: date)
                 self.tvTopRated.append(oneTv)
@@ -93,13 +93,13 @@ class homeCardModel : ObservableObject {
     }
     
     func getTvPopular(){
-        AF.request(urlPre + "getData/tv/popular").response { response in
+        AF.request(urlPre + "media/tv/popular").response { response in
             let tvs = try! JSON(data: response.data!)
             for tv in tvs{
                 let title = tv.1["title"].object as! String
                 let mediaID = tv.1["id"].object as! Int
                 let type = tv.1["type"].object as! String
-                let pic = tv.1["backdrop"].object as! String
+                let pic = tv.1["poster"].object as! String
                 let date = tv.1["date"].object as! String
                 let oneTv = CardData(title: title, mediaID: mediaID, pic: pic, type: type, date: date)
                 self.tvPopular.append(oneTv)
