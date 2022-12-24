@@ -80,7 +80,7 @@ struct HomeViewMain: View {
                 }
                 .padding(.bottom)
                 
-                .navigationTitle("USC Films")
+                .navigationTitle("Movie Explorer")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .toolbar{
                     Button(self.isMovie ? "TV shows" : "Movies"){
